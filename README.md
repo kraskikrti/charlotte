@@ -14,8 +14,10 @@ Embedded
 The name reflects its core feature: it's a topographic tool for caves, like the famous DistoX, but it's hacky and cheap because it is built with a RaspberryPi computer and hobby electronics components.
 
 The logo is inspired by the Charlotte cake:
-Charlotte Cake IMG
-Its classic cilindrical shape reflects the shape of the prototipe of this device. Also, there's a joke because this device is built on a Raspberry Pi, which sounds similar to "raspberry pie", and the Charlotte is a cake you can make also with wild berries (like raspberries).
+
+<img src="https://github.com/kraskikrti/charlotte/raw/master/charlotte.png" width="150px"/>
+
+Its classic cilindrical shape reflects the shape of the prototipe of this device. Also, this device is built on a Raspberry Pi, which sounds similar to "raspberry pie", and the Charlotte is a cake you can make also with wild berries (like raspberries).
 
 ## Safety notes
 The default WiFi zone is Italy (Europe), so it's using a 2.4GHz radio signal.
@@ -29,7 +31,7 @@ The ethernet port connects automatically to any network with DHCP, so it can be 
 The WiFi device is always turned off at boot, and you need to enable it manually from the Mode tab of Charlotte interface. The WiFi cannot be used to connect to an existing network: it's instead automatically used to build an Access Point to wich you can connect using another device. This means you already need physical access the the device to be able to get remote control and access to the files.
 
 ## Install
-The easiest way to get Charlotte ready to work is to download the image for a RaspberryPi from our website (TODO), and write it on a new SD card (minimum requirement: 16GB).
+The easiest way to get Charlotte ready to work is to download the image for a RaspberryPi from our website (https://www.kraskikrti.net/charlotte/charlotte-os.7z), and write it on a new SD card (minimum requirement: 8GB).
 
 ## Update
 To update Charlotte, you first need to connect the device to a network using the ethernet cable. To update, you need to open a terminal (ssh connection) and run the following commands:
