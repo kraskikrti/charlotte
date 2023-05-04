@@ -2048,6 +2048,18 @@ class MainWindow(QMainWindow):
         msp = doc.modelspace()  # add new entities to the modelspace
         if self.w.dxfmesh.isChecked():
             mesh = msp.add_mesh()
+        branchID = 0
+        for branch in self.branches:
+            branchID = branchID + 1
+            branchpoints = []
+            for branchEl in range(len(branch)):
+                point = branch[branchEl]
+                myCoords = self.myCoordinates[point]
+                myX = myCoords["pos"][0]
+                myY = myCoords["pos"][1]
+                myZ = myCoords["pos"][2]
+                branchpoints.append((myX, -myY, myZ))
+            branchline = msp.add_polyline3d(branchpoints)
         for row in Cfile["measurements"]:
             fromX = self.myCoordinates[row["from"]]["pos"][0]
             fromY = self.myCoordinates[row["from"]]["pos"][1]
@@ -2058,7 +2070,7 @@ class MainWindow(QMainWindow):
             #print((fromX, fromY, fromZ), (toX, toY, toZ))
             thickness = 0
             #https://ezdxf.readthedocs.io/en/stable/layouts/layouts.html#ezdxf.layouts.BaseLayout.add_line
-            msp.add_line((fromX, -fromY, fromZ), (toX, -toY, toZ))  # add a LINE entity
+            #msp.add_line((fromX, -fromY, fromZ), (toX, -toY, toZ))  # add a LINE entity
             myCenter = [fromX, fromY, fromZ]
             if self.isValidSection(row["section"]):
                 secCoords = self.calculateSectionCoord(row["section"], myCenter, row["topographic"]["heading"], row["topographic"]["frontalInclination"], row["topographic"]["sideTilt"])
